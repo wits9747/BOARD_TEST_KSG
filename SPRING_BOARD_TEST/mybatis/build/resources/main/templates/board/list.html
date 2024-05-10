@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>게시글 목록</h1>
+
+    <a href="/board/insert"><button>글쓰기</button></a>
+    <table border="1">
+        <tr>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+        </tr>
+
+        <th:block th:each="( board : ${boardList})">
+            <tr>
+                
+                    <td><a th:href="|/board/read?no=${board.no}|"><span th:text="${board.title}"></span></a></td>                
+                    <td th:text="${board.writer}"></td>
+                    <td th:text="${board.regDate}"></td>
+                    <td th:text="${board.views}"></td>
+                
+            </tr>
+        </th:block>
+    </table>
+</body>
+
+</html>
